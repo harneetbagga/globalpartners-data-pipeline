@@ -1,0 +1,14 @@
+{
+  "bronze_crawler": {
+    "name": "gp-bronze-crawler",
+    "role": "GlueGPExecutionRole",
+    "database": "gp_bronze",
+    "targets": [
+      "s3://gp-data-lake-dev/bronze/order_items/",
+      "s3://gp-data-lake-dev/bronze/order_item_options/",
+      "s3://gp-data-lake-dev/bronze/date_dim/"
+    ],
+    "recrawl_policy": "CRAWL_NEW_FOLDERS_ONLY",
+    "schema_change": "UPDATE_IN_DATABASE"
+  }
+}
