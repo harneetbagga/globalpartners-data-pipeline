@@ -1,0 +1,8 @@
+pytest==7.4.0
+pytest-cov==4.1.0
+pyspark==3.3.2
+boto3==1.28.0
+moto[s3,dynamodb,secretsmanager]==4.2.0
+black==23.7.0
+flake8==6.1.0
+bandit==1.7.5

@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+
+# Environments
+.env
+.env.*
+venv/
+env/
+*.env
+
+# AWS
+.aws/
+cdk.out/
+*.zip
+
+# Secrets — NEVER commit these
+secrets.json
+*credentials*
+*secret*
+
+# Local dev only — not part of pipeline
+scripts/csv_data_upload.py
+data/
+*.csv
+claude/
+
+# IDE
+.vscode/
+.idea/
+*.DS_Store

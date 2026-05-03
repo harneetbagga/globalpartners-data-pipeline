@@ -1,0 +1,34 @@
+name: CI — Lint, Test, Security Scan
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [develop]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Black format check
+        run: black --check glue_jobs/ tests/
+
+      - name: Flake8 lint
+        run: flake8 glue_jobs/ tests/ --max-line-length=120
+
+      - name: Bandit security scan
+        run: bandit -r glue_jobs/ -ll
+
+      - name: Run unit tests
+        run: pytest tests/unit/ -v --cov=glue_jobs --cov-report=term-missing
