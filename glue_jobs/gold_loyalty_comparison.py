@@ -1,3 +1,8 @@
+"""
+Gold Loyalty Comparison Job
+This job compares loyalty vs non-loyalty customer behaviour — spend, order frequency, CLV distribution, and retention patterns.
+"""
+
 import sys
 from datetime import datetime, timezone
 from awsglue.utils import getResolvedOptions

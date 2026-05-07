@@ -1,3 +1,8 @@
+"""
+Gold Churn Indicators — Summary
+Purpose: Build a customer activity profile to help marketing identify at-risk customers without any ML predictions — purely rule-based tagging based on observed behaviour.
+"""
+
 import sys
 from datetime import datetime, timezone
 from awsglue.utils import getResolvedOptions

@@ -1,3 +1,8 @@
+"""
+Gold Sales Trends Job
+This job computes daily/weekly/monthly revenue patterns by joining order_items with date_dim to enrich with calendar context (day of week, holidays, weekends).
+"""
+
 import sys
 from datetime import datetime, timezone
 from awsglue.utils import getResolvedOptions

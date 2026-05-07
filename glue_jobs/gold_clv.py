@@ -1,3 +1,8 @@
+"""
+Gold Layer — CLV Job
+Reads from Silver order_items, filters to customer-eligible rows only, computes total revenue per customer, assigns CLV bands (High/Medium/Low), and writes a daily snapshot to Gold S3.
+"""
+
 import sys
 from datetime import datetime, timezone
 from awsglue.utils import getResolvedOptions

@@ -1,3 +1,8 @@
+"""
+Gold RFM Job
+RFM segments customers by Recency (how recently they ordered), Frequency (how often), and Monetary (how much they spent). Each dimension is scored 1-5, then combined into a segment label.
+"""
+
 import sys
 from datetime import datetime, timezone
 from awsglue.utils import getResolvedOptions

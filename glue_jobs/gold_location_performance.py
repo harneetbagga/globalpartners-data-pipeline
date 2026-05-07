@@ -1,3 +1,8 @@
+"""
+Gold Location Performance Job
+This job ranks restaurants by revenue, order volume, and growth, identifying top and bottom performers.
+"""
+
 import sys
 from datetime import datetime, timezone
 from awsglue.utils import getResolvedOptions
