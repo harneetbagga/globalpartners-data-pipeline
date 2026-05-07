@@ -148,8 +148,15 @@ clv_df = clv_df.withColumn("clv_band",
 
 # ── Churn risk flag ────────────────────────────────────────────────────────
 # Customers inactive for more than 45 days are flagged as churn risk
+max_order_date = customer_oi.agg(F.max("order_date")).collect()[0][0]
+print(f"Dataset max order date: {max_order_date}")
+
+clv_df = clv_df.withColumn("days_inactive_in_dataset",
+    F.datediff(F.lit(str(max_order_date)), F.col("last_order_date"))
+)
+
 clv_df = clv_df.withColumn("is_churn_risk",
-    F.when(F.col("days_since_last_order") > 45, F.lit(True))
+    F.when(F.col("days_inactive_in_dataset") > 45, F.lit(True))
      .otherwise(F.lit(False))
 )
 
