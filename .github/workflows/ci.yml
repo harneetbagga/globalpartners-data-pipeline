@@ -32,3 +32,14 @@ jobs:
 
       - name: Run unit tests
         run: pytest tests/unit/ -v --cov=glue_jobs --cov-report=term-missing
+
+      - name: CDK Synth (validate infrastructure)
+        run: |
+          npm install -g aws-cdk
+          pip install aws-cdk-lib constructs
+          cd infra/cdk
+          cdk synth
+        env:
+          AWS_ACCESS_KEY_ID:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION:    us-east-1
