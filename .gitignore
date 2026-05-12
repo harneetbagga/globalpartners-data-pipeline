@@ -32,4 +32,4 @@ claude/
 # IDE
 .vscode/
 .idea/
-*.DS_Store
+*.DS_Storestreamlit_app/.streamlit/secrets.toml
