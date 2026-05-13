@@ -28,6 +28,7 @@ scripts/csv_data_upload.py
 data/
 *.csv
 claude/
+sop/
 
 # IDE
 .vscode/
