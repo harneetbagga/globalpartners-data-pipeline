@@ -1,5 +1,0 @@
-streamlit==1.41.0
-pandas==2.2.3
-plotly==5.18.0
-boto3==1.28.0
-pyathena==3.0.0
