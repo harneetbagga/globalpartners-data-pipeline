@@ -116,6 +116,17 @@ def incremental_load(table_name, watermark_col, partition_col=None):
 
     print(f"  Written to: {output_path}/year=YYYY/month=MM/day=DD/")
 
+    # After writing to S3, validate before updating watermark
+    written_count = spark.read.parquet(output_path).count()
+    expected_count = df.count()
+
+    if written_count != expected_count:
+        raise Exception(
+            f"Write validation failed: expected {expected_count} "
+            f"rows but found {written_count} in S3. "
+            f"Watermark NOT updated."
+        )
+
     # 8. Update watermark to max timestamp in this batch
     max_ts = df.agg(
         F.max(F.col(watermark_col.lower()))
